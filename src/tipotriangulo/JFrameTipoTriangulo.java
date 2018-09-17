@@ -72,9 +72,9 @@ public class JFrameTipoTriangulo extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lado3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jButton1)
@@ -87,12 +87,12 @@ public class JFrameTipoTriangulo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(lado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(lado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -105,8 +105,31 @@ public class JFrameTipoTriangulo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(lado1.getText().equals(lado2.getText()) && lado1.getText().equals(lado3.getText())) {
-            result.setText("Equilátero");
+        String[] valores = new String[3];
+        valores[0] = lado1.getText();
+        valores[1] = lado2.getText();
+        valores[2] = lado3.getText();
+        int ladosIguais = 0;
+        for(int i = 0; i < valores.length; i++) 
+        {
+            for(int j = i + 1; j < valores.length; j++) 
+            {
+                if(valores[j].equals(valores[i]) && i != j) {
+                    ladosIguais++;
+                }
+            }
+        }
+        if (ladosIguais == 3) 
+        {
+            result.setText("Esse triângulo é equilátero.");
+        } 
+        else if (ladosIguais == 1) 
+        {
+            result.setText("Esse triângulo é isóceles.");
+        } 
+        else 
+        {
+            result.setText("Esse triângulo é escaleno.");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
