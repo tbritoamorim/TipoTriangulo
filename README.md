@@ -1,0 +1,1 @@
+# TipoTriangulo
