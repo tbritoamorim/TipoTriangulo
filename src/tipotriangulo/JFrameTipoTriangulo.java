@@ -16,6 +16,7 @@ public class JFrameTipoTriangulo extends javax.swing.JFrame {
      */
     public JFrameTipoTriangulo() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
